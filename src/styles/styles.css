@@ -1,0 +1,43 @@
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-list li:last-child {
+    margin-right: 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #1e90ff;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+    }
+
+    .nav-list a {
+        color: white;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}

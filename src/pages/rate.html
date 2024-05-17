@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us - Gamerz2Egypt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1e90ff; 
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cart-logo {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            padding: 5px;
+            border-radius: 5px;
+            border: 2px solid white; 
+        }
+
+        .cart-logo img {
+            height: 40px;
+            cursor: pointer;
+            display: block;
+        }
+
+        nav {
+            background-color: #4682b4; 
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .rating-buttons button {
+            background-color: #1e90ff; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .rating-buttons button:hover {
+            background-color: #4682b4;
+        }
+
+        footer {
+            background-color: #4682b4;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #4682b4;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gamerz2Egypt</h1>
+    </header>
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul>
+            <li><a href="..\pages\index.html">Home</a></li>
+            <li><a href="..\pages\products.html">Products</a></li>
+            <li><a href="..\pages\cart.html">Cart</a></li>
+            <li><a href="..\pages\rate.html">Rate Us</a></li>
+            <li><a href="..\pages\about.html">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Rate Us</h2>
+        <p>We appreciate your feedback! Please rate us:</p>
+        <div class="rating-buttons">
+            <button onclick="rateUs(1)">1 Star</button>
+            <button onclick="rateUs(2)">2 Stars</button>
+            <button onclick="rateUs(3)">3 Stars</button>
+            <button onclick="rateUs(4)">4 Stars</button>
+            <button onclick="rateUs(5)">5 Stars</button>
+        </div>
+        <div id="rating-result"></div>
+    </div>
+    <footer>
+        &copy; 2024 Gamerz2Egypt
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navUl = document.querySelector('nav ul');
+            if (window.innerWidth <= 768) {
+                if (navUl.style.display === 'flex') {
+                    navUl.style.display = 'none';
+                } else {
+                    navUl.style.display = 'flex';
+                }
+            }
+        }
+
+        window.addEventListener('resize', function() {
+            const navUl = document.querySelector('nav ul');
+            if (window.innerWidth > 768) {
+                navUl.style.display = 'flex';
+            } else {
+                navUl.style.display = 'none';
+            }
+        });
+
+        function rateUs(rating) {
+            const ratingResult = document.getElementById('rating-result');
+            ratingResult.innerHTML = `Thank you for rating us ${rating} star${rating > 1 ? 's' : ''}!`;
+        }
+    </script>
+</body>
+</html>
